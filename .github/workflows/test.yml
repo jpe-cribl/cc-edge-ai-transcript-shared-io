@@ -21,7 +21,7 @@ jobs:
     # Runs on the template too — the template now ships a working demo
     # passthrough pipeline + fixture so the harness gets exercised here
     # before consumer repos inherit it.
-    uses: dryvist/cc-edge-pack-template/.github/workflows/cribl-pack-test.yml@main
+    uses: dryvist/cc-edge-pack-template/.github/workflows/cribl-pack-test.yml@4ca0a7e1e989464cb47bbcf2036b751adab954ee # main
     with:
       # CHANGE per pack: 'edge' for Cribl Edge packs, 'stream' for Cribl Stream packs.
       pack_type: edge
