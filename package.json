@@ -1,6 +1,6 @@
 {
   "name": "cc-edge-ai-transcript-shared-io",
-  "version": "0.0.0",
+  "version": "0.1.0",
   "minLogStreamVersion": "4.16.0",
   "author": "jpe-cribl",
   "description": "Shared Cribl Edge pack for AI CLI session logs: credential masking pipeline and a JSONL line breaker.",
