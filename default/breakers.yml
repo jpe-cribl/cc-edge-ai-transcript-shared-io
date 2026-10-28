@@ -1,0 +1,18 @@
+AI CLI JSONL:
+  lib: custom
+  description: Newline-delimited AI-CLI session-log JSON; single lines can far exceed the 51200-byte default maxEventBytes (codex lines >1 MiB observed)
+  rules:
+    - condition: "true"
+      type: regex
+      timestampAnchorRegex: /^/
+      timestamp:
+        type: auto
+        length: 150
+      timestampTimezone: local
+      timestampEarliest: -420weeks
+      timestampLatest: +1week
+      maxEventBytes: 4194304
+      disabled: false
+      eventBreakerRegex: /[\n\r]+/
+      name: jsonl
+  tags: ai
