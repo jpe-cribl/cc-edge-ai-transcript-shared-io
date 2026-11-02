@@ -1,0 +1,9 @@
+{
+  "_raw": "{\"display\":\"run the test suite\",\"pastedContents\":{},\"timestamp\":1793546000000,\"project\":\"/opt/agent/work/demo-app\",\"sessionId\":\"9a0b1c2d-3e4f-4a5b-8c6d-7e8f9a0b1c2d\"}",
+  "display": "run the test suite",
+  "pastedContents": {},
+  "timestamp": 1793546000000,
+  "project": "/opt/agent/work/demo-app",
+  "sessionId": "9a0b1c2d-3e4f-4a5b-8c6d-7e8f9a0b1c2d",
+  "source": "/opt/agent/.claude/history.jsonl"
+}

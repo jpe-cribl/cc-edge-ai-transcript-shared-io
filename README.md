@@ -1,11 +1,20 @@
 # cc-edge-ai-transcript-shared-io
 
-Cribl Edge pack for AI CLI session logs. It defines two worker-level items:
+Cribl Edge pack for AI CLI session logs. It defines four worker-level items:
 
 - `transcript_mask` (`default/pipelines/transcript_mask/conf.yml`): masks
   credential-shaped strings in every field of an event. Covers GitHub,
   secret-manager tokens, private key, JWT, Slack, API key and AWS token formats.
   Each match is replaced with a `<redacted:<kind>>` marker.
+- `claude_sessions` (`default/pipelines/claude_sessions/conf.yml`): stamps
+  Claude Code session-log events with `sourcetype` `claude:cli:session` and
+  `index` `claude`, copies `sessionId`, `cwd` and `timestamp` to `session_id`,
+  `cwd` and `timestamp`, and maps user and assistant text onto
+  `message.role`, `message.content`, `llm.prompt` and `llm.completion`.
+- `claude_history_stamp` (`default/pipelines/claude_history_stamp/conf.yml`):
+  stamps Claude Code `history.jsonl` events with `sourcetype`
+  `claude:cli:history` and `index` `claude`, and sets `enduser_id` from the
+  path segment after `/Users/` in the event's `source`.
 - `AI CLI JSONL` (`default/breakers.yml`): breaks newline-delimited JSON into
   one event per line, with a 4 MiB per-event ceiling.
 
