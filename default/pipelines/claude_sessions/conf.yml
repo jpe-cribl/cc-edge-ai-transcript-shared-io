@@ -17,30 +17,29 @@ functions:
         - name: timestamp
           value: timestamp
         - name: "'message.role'"
-          value: >-
-            type === 'user' || type === 'assistant' ? type
-              : message && message.role
-        - name: "'message.content'"
-          value: >-
-            message && typeof message.content === 'string' ? message.content
-              : message && Array.isArray(message.content)
-                ? message.content
-                    .filter(part => part.type === 'text' && typeof part.text === 'string')
-                    .map(part => part.text)
-                    .join('')
-                : undefined
+          value: "type === 'user' || type === 'assistant' ? type : message && message.role"
+  - id: code
+    filter: "true"
+    disabled: false
+    conf:
+      # The eval function rejects callbacks ("Expression cannot have nested
+      # scopes"), so the text blocks of an assistant message are joined here.
+      code: |-
+        const m = __e.message;
+        if (m && typeof m.content === 'string') {
+          __e['message.content'] = m.content;
+        } else if (m && Array.isArray(m.content)) {
+          __e['message.content'] = m.content
+            .filter(part => part.type === 'text' && typeof part.text === 'string')
+            .map(part => part.text)
+            .join('');
+        }
   - id: eval
     filter: "type === 'user' || type === 'assistant'"
     disabled: false
     conf:
       add:
         - name: "'llm.prompt'"
-          value: >-
-            type === 'user' && __e['message.content']
-              ? __e['message.content']
-              : undefined
+          value: "type === 'user' && __e['message.content'] ? __e['message.content'] : undefined"
         - name: "'llm.completion'"
-          value: >-
-            type === 'assistant' && __e['message.content']
-              ? __e['message.content']
-              : undefined
+          value: "type === 'assistant' && __e['message.content'] ? __e['message.content'] : undefined"
