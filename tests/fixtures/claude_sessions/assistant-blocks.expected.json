@@ -1,0 +1,10 @@
+{
+  "sourcetype": "claude:cli:session",
+  "index": "claude",
+  "session_id": "4f1c2a7e-9b3d-4e8f-a1c2-7d6e5f4a3b21",
+  "cwd": "/Users/example/git/demo-app",
+  "timestamp": "2026-11-01T14:02:19.904Z",
+  "message.role": "assistant",
+  "message.content": "I'll add the route. Done.",
+  "llm.completion": "I'll add the route. Done."
+}

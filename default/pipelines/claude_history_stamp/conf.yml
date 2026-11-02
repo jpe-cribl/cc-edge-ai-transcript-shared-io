@@ -1,0 +1,17 @@
+output: default
+description: Stamps Claude Code history.jsonl events with sourcetype and index, and sets enduser_id from the path segment after /Users/ in the event source.
+functions:
+  - id: eval
+    filter: "true"
+    disabled: false
+    conf:
+      add:
+        - name: sourcetype
+          value: "'claude:cli:history'"
+        - name: index
+          value: "'claude'"
+        - name: enduser_id
+          value: >-
+            typeof source === 'string' && source.indexOf('/Users/') !== -1
+              ? source.split('/Users/')[1].split('/')[0]
+              : undefined

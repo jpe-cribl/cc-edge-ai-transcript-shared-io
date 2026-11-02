@@ -1,0 +1,45 @@
+output: default
+description: Stamps Claude Code session-log events with sourcetype and index, copies session fields, then maps user and assistant text onto OpenTelemetry-AI message and llm fields.
+functions:
+  - id: eval
+    filter: "true"
+    disabled: false
+    conf:
+      add:
+        - name: sourcetype
+          value: "'claude:cli:session'"
+        - name: index
+          value: "'claude'"
+        - name: session_id
+          value: sessionId
+        - name: cwd
+          value: cwd
+        - name: timestamp
+          value: timestamp
+        - name: "'message.role'"
+          value: "type === 'user' || type === 'assistant' ? type : message && message.role"
+  - id: code
+    filter: "true"
+    disabled: false
+    conf:
+      # The eval function rejects callbacks ("Expression cannot have nested
+      # scopes"), so the text blocks of an assistant message are joined here.
+      code: |-
+        const m = __e.message;
+        if (m && typeof m.content === 'string') {
+          __e['message.content'] = m.content;
+        } else if (m && Array.isArray(m.content)) {
+          __e['message.content'] = m.content
+            .filter(part => part.type === 'text' && typeof part.text === 'string')
+            .map(part => part.text)
+            .join('');
+        }
+  - id: eval
+    filter: "type === 'user' || type === 'assistant'"
+    disabled: false
+    conf:
+      add:
+        - name: "'llm.prompt'"
+          value: "type === 'user' && __e['message.content'] ? __e['message.content'] : undefined"
+        - name: "'llm.completion'"
+          value: "type === 'assistant' && __e['message.content'] ? __e['message.content'] : undefined"

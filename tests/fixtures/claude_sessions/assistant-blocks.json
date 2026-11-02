@@ -1,0 +1,36 @@
+{
+  "_raw": "{\"parentUuid\":\"c3a1e9d2-5b7f-4a60-8e12-9f0d4b6c7a18\",\"isSidechain\":false,\"userType\":\"external\",\"cwd\":\"/Users/example/git/demo-app\",\"sessionId\":\"4f1c2a7e-9b3d-4e8f-a1c2-7d6e5f4a3b21\",\"version\":\"1.0.0\",\"type\":\"assistant\",\"message\":{\"id\":\"msg_01Q7xR2vLm4Tz8Wc\",\"type\":\"message\",\"role\":\"assistant\",\"model\":\"example-model\",\"content\":[{\"type\":\"text\",\"text\":\"I'll add the route. \"},{\"type\":\"tool_use\",\"id\":\"toolu_01Kd3Yp9Ww2Ne5Fa\",\"name\":\"Edit\",\"input\":{\"file_path\":\"/Users/example/git/demo-app/server.js\"}},{\"type\":\"text\",\"text\":\"Done.\"}]},\"uuid\":\"9e4d7b10-2c6a-4f3e-b5d8-1a7c0e9f2b64\",\"timestamp\":\"2026-11-01T14:02:19.904Z\"}",
+  "parentUuid": "c3a1e9d2-5b7f-4a60-8e12-9f0d4b6c7a18",
+  "isSidechain": false,
+  "userType": "external",
+  "cwd": "/Users/example/git/demo-app",
+  "sessionId": "4f1c2a7e-9b3d-4e8f-a1c2-7d6e5f4a3b21",
+  "version": "1.0.0",
+  "type": "assistant",
+  "message": {
+    "id": "msg_01Q7xR2vLm4Tz8Wc",
+    "type": "message",
+    "role": "assistant",
+    "model": "example-model",
+    "content": [
+      {
+        "type": "text",
+        "text": "I'll add the route. "
+      },
+      {
+        "type": "tool_use",
+        "id": "toolu_01Kd3Yp9Ww2Ne5Fa",
+        "name": "Edit",
+        "input": {
+          "file_path": "/Users/example/git/demo-app/server.js"
+        }
+      },
+      {
+        "type": "text",
+        "text": "Done."
+      }
+    ]
+  },
+  "uuid": "9e4d7b10-2c6a-4f3e-b5d8-1a7c0e9f2b64",
+  "timestamp": "2026-11-01T14:02:19.904Z"
+}

@@ -1,0 +1,16 @@
+{
+  "_raw": "{\"parentUuid\":null,\"isSidechain\":false,\"userType\":\"external\",\"cwd\":\"/Users/example/git/demo-app\",\"sessionId\":\"4f1c2a7e-9b3d-4e8f-a1c2-7d6e5f4a3b21\",\"version\":\"1.0.0\",\"type\":\"user\",\"message\":{\"role\":\"user\",\"content\":\"Add a health check route to the server.\"},\"uuid\":\"c3a1e9d2-5b7f-4a60-8e12-9f0d4b6c7a18\",\"timestamp\":\"2026-11-01T14:02:11.482Z\"}",
+  "parentUuid": null,
+  "isSidechain": false,
+  "userType": "external",
+  "cwd": "/Users/example/git/demo-app",
+  "sessionId": "4f1c2a7e-9b3d-4e8f-a1c2-7d6e5f4a3b21",
+  "version": "1.0.0",
+  "type": "user",
+  "message": {
+    "role": "user",
+    "content": "Add a health check route to the server."
+  },
+  "uuid": "c3a1e9d2-5b7f-4a60-8e12-9f0d4b6c7a18",
+  "timestamp": "2026-11-01T14:02:11.482Z"
+}

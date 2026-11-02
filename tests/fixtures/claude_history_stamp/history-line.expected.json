@@ -1,0 +1,5 @@
+{
+  "sourcetype": "claude:cli:history",
+  "index": "claude",
+  "enduser_id": "example"
+}
